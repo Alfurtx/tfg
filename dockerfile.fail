@@ -1,0 +1,29 @@
+FROM debian:latest
+
+# El programa utilizará tantos hilos como NUM_JOBS indique, por defecto su valor es 1. Es recomendado no utilizar mas de 2/3 del numero de cores virtuales en la maquina que se esté utilizando
+ENV NUM_JOBS=6
+
+# Mas variables de entorno para hacer que todo sea mas modular
+ENV DIR_CVA=/cva6
+ENV INSTALL_DIR=${DIR_CVA}/toolchain
+ENV RISCV=${INSTALL_DIR}
+
+WORKDIR /cva6
+
+COPY ./install-cva6.sh .
+COPY ./install-toolchain-prerequisites.sh .
+COPY ./install-toolchain.sh .
+
+RUN mkdir toolchain
+
+RUN apt-get update -y && apt-get install git cmake help2man device-tree-compiler python3 python3-pip -y
+
+RUN bash ./install-cva6.sh
+RUN bash ./install-toolchain-prerequisites.sh
+RUN bash ./install-toolchain.sh
+
+RUN pip3 install -r ${DIR_CVA}/verif/sim/dv/requirements.txt --break-system-packages
+
+# Simulation
+ENV DV_SIMULATORS=veri-testharness,spike
+RUN bash ${DIR_CVA}/verif/regress/smoke-tests.sh
