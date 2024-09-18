@@ -13,3 +13,19 @@ intentar cambiar el nombre de la carpeta. Aparentemente parece funcionar, pero a
 
 Aunque creo que el verdadero codigo de error es ese True/2 .  
 Acabo de descubrir que este error ya apareció [antes](https://github.com/openhwgroup/cva6/issues/2462)
+
+Solucion intento #2:
+
+Cambiar el nombre del directorio no funcionó ya que exite otro script a la hora  
+de realizar la simulacion de hello-world que tiene hardcoded el path previo de  
+verilator-v5.008, diferiendo de el path que setup-env.sh realiza. Por lo tanto  
+voy a cambiar el script para ver si acaba funcionando.o
+
+Aparentemente funciona, según todos los logs funciona. Pero no hay ningun lugar  
+donde se guarde la salida estandar o algo con el Hello World! de ejemplo asi que  
+me esta haciendo dudar respecto a si el test lo unico que hace es compilar el
+programa pero no ejecutarlo. De todas maneras, supuestamante funciona.
+
+Resumen: modificar el script en .../cva6/verif/sim/setup-env.sh, en concreto,  
+cambiar el verilator install dir a "$ROOT_PROJECT"/tools/verilator-v5.008 (o el  
+que sea que te haya instalado)
