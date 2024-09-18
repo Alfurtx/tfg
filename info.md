@@ -29,3 +29,6 @@ programa pero no ejecutarlo. De todas maneras, supuestamante funciona.
 Resumen: modificar el script en .../cva6/verif/sim/setup-env.sh, en concreto,  
 cambiar el verilator install dir a "$ROOT_PROJECT"/tools/verilator-v5.008 (o el  
 que sea que te haya instalado)
+
+Conclusion: según los propios desarrolladores de CVA6, el print a pantalla ya no  
+esta [soportado](https://github.com/openhwgroup/cva6/issues/2426)
