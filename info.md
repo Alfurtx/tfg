@@ -1,5 +1,7 @@
 # Problemas u otras cosas que han ido ocurriendo
 
+## Problema mostrando por pantalla Hello World
+
 Al tratar de lanzar el ejemplo de Hola Mundo provisto por CVA6 falla al no detectar  
 la herramienta de Verilator, aunque esta fue instalada junto a Spike y esa si fue  
 detectada. Verilator parece estar instalada en /tfg/cva6/tools/verilator-v5.008/bin/verilator .  
@@ -32,3 +34,16 @@ que sea que te haya instalado)
 
 Conclusion: según los propios desarrolladores de CVA6, el print a pantalla ya no  
 esta [soportado](https://github.com/openhwgroup/cva6/issues/2426)
+
+## Problema simular saxpy
+
+Puede que no se puedan ver los resultados de la ejecucion por pantalla con un
+printf, pero si que se puede observar la traza del programa que se ha ejecutado.
+Es asi que decidí cambiar el codigo de hello-world para que ahora ejecutase un
+saxpy simple. Y como supuse, la traza del programa y tal salio bien. El problema
+de la traza es que esta en ensamblador (y no precisamente del legible), asi que
+es complicado observar si se ejecuto todo correctamente.
+
+La unica solucion que se me ocurrio para resolver esto es buscar en la traza
+instrucciones como 'mul' y ver si encuentro el patron repetitivo del bucle. Y
+voilà, lo encontré. No deberia de ser dificil de replicar.
