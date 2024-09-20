@@ -32,4 +32,4 @@ RUN pip3 install -r /tfg/cva6/verif/sim/dv/requirements.txt --break-system-packa
 ENV DV_SIMULATORS=veri-testharness,spike
 RUN bash /tfg/cva6/verif/regress/smoke-tests.sh
 
-RUN apt-get update -y
+RUN apt-get install vim neovim -y
