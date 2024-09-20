@@ -8,6 +8,11 @@ Parece que la interfaz funciona mediante peticiones-respuestas. Está
 descompuesta en varias interfaces, ya sean la de issue, la de commit o la de  
 result.
 
+## Informacino de la placa de desarrollo
+
+* Tratar de simular linux desde verilator o de alguna manera
+* el procesador FPGA creo que es [este](Kintex-7™ FPGA from Xilinx)
+
 ## Lista de links interesantes
 
 * [placa de desarrollo](https://digilent.com/reference/programmable-logic/genesys-2/reference-manual?redirect=1)
