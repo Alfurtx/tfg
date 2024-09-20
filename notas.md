@@ -11,3 +11,6 @@ result.
 ## Lista de links interesantes
 
 * [placa de desarrollo](https://digilent.com/reference/programmable-logic/genesys-2/reference-manual?redirect=1)
+* [metodo scoreboarding para ejecucion
+  dinamica](https://github.com/NicoleMayer/ECE668-Notes/blob/master/lesson9.md)  
+
